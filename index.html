@@ -4,14 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Who Is The Freaky Bitch Now?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-        .question { margin: 20px 0; }
-        .hidden { display: none; }
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #200000;
+            color: #f4c2c2;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: #ff3366;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        h2 {
+            color: #ff6699;
+            font-size: 2rem;
+        }
+
+        .question {
+            margin: 30px auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 51, 102, 0.7);
+            text-align: left;
+        }
+
+        .question p {
+            font-size: 1.4rem;
+            color: #ff99cc;
+            font-weight: bold;
+        }
+
+        label {
+            font-size: 1.2rem;
+            display: block;
+            padding: 5px;
+            color: #ffccdd;
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        button {
+            margin-top: 20px;
+            background: #ff3366;
+            border: none;
+            color: white;
+            font-size: 1.3rem;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0px 4px 8px rgba(255, 51, 102, 0.7);
+            transition: 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background: #ff6699;
+            transform: scale(1.05);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #indulge-btn {
+            display: block;
+            margin: 40px auto;
+            font-size: 1.5rem;
+            background: #cc0033;
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s ease-in-out;
+        }
+
+        #indulge-btn:hover {
+            background: #ff6699;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
-    <h1>Couples Fantasy Quiz 1</h1>
+    <h1>Couples Fantasy Quiz 💋</h1>
     <div id="user1-section">
         <h2>User 1: Answer the Questions</h2>
         <div id="questions-container"></div>
@@ -24,23 +111,13 @@
         <button onclick="finishUser2()">Submit User 2's Answers</button>
     </div>
 
-    <div id="results-section" class="hidden">
-        <h2>Mutual Matches</h2>
-        <ul id="matches-list"></ul>
-        <h2>Compatibility Score</h2>
-        <p id="compatibility-score"></p>
-        <h2>Responses Breakdown</h2>
-        <h3>User 1's "Nah" Answers</h3>
-        <ul id="user1-nah"></ul>
-        <h3>User 2's "Nah" Answers</h3>
-        <ul id="user2-nah"></ul>
-    </div>
+    <a id="indulge-btn" href="kinklist.html">Click here if you need to inbuldge *cough* I mean indulge further... or how you like it... deeper 😉</a>
 
     <script>
         const questions = [
-            "have Ya Spouse talk dirtier to me",
-            "have Ya Spouse strip or give me a lap dance",
-            "have Ya Spouse give me a sensual massage",
+            "Hear them talk dirtier to me",
+            "Recieve a strip tease or give me a lap dance",
+            "Recieve give me a sensual massage",
             "watch porn together",
             "take pictures of Ya Spouse",
             "be whipped by them",
@@ -49,7 +126,7 @@
             "be dominant towards Ya Dood",
             "69 Ya Boo",
             "use restraints on Ya Spouse",
-            "have Ya Spouse swallow my cum",
+            "have Ya Spouse swallow your cum",
             "use vibrators while having sex",
             "cum over Ya Spouse's face (facial)",
             "be rougher in sex towards Ya Spouse",
@@ -60,6 +137,7 @@
             "watch Ya Spouse masturbate",
             "cum over Ya Spouse's breasts/neck (pearl necklace)",
             "mutually masturbate",
+            "include another male in the bedroom"
             "have Ya Spouse use a butt plug",
             "blindfold Ya Spouse",
             "be tied down or otherwise restrained by Ya Spouse",
@@ -67,12 +145,9 @@
             "be shown what Ya Spouse likes from porn",
             "spank Ya Spouse with your hand",
             "be submissive for Ya Spouse",
-            "include another female in sex (ménage à trois)",
+            "include another female in the bedroom (ménage à trois)",
             "wear a cock ring (vibrating/non-vibrating) during sex"
         ];
-
-        let user1Answers = [];
-        let user2Answers = [];
 
         function createQuestionList(containerId) {
             const container = document.getElementById(containerId);
@@ -88,52 +163,6 @@
                 `;
                 container.appendChild(div);
             });
-        }
-
-        function finishUser1() {
-            user1Answers = Array.from(document.querySelectorAll('#questions-container input:checked')).map(input => input.value);
-            document.getElementById("user1-section").classList.add("hidden");
-            document.getElementById("user2-section").classList.remove("hidden");
-            createQuestionList("questions-container-2");
-        }
-
-        function finishUser2() {
-            user2Answers = Array.from(document.querySelectorAll('#questions-container-2 input:checked')).map(input => input.value);
-            document.getElementById("user2-section").classList.add("hidden");
-            document.getElementById("results-section").classList.remove("hidden");
-            showResults();
-        }
-
-        function showResults() {
-            const matchesList = document.getElementById("matches-list");
-            matchesList.innerHTML = "";
-            let matchCount = 0;
-            const user1NahList = document.getElementById("user1-nah");
-            const user2NahList = document.getElementById("user2-nah");
-            user1NahList.innerHTML = "";
-            user2NahList.innerHTML = "";
-
-            questions.forEach((question, index) => {
-                if (user1Answers[index] === "Yep" && user2Answers[index] === "Yep") {
-                    const li = document.createElement("li");
-                    li.textContent = question;
-                    matchesList.appendChild(li);
-                    matchCount++;
-                }
-                if (user1Answers[index] === "Nah") {
-                    const li = document.createElement("li");
-                    li.textContent = question;
-                    user1NahList.appendChild(li);
-                }
-                if (user2Answers[index] === "Nah") {
-                    const li = document.createElement("li");
-                    li.textContent = question;
-                    user2NahList.appendChild(li);
-                }
-            });
-
-            const compatibilityScore = ((matchCount / questions.length) * 100).toFixed(2);
-            document.getElementById("compatibility-score").textContent = `Compatibility Score: ${compatibilityScore}%`;
         }
 
         createQuestionList("questions-container");
