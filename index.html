@@ -111,61 +111,63 @@
         <button onclick="finishUser2()">Submit User 2's Answers</button>
     </div>
 
-    <a id="indulge-btn" href="kinklist.html">Click here if you need to inbuldge *cough* I mean indulge further... or how you like it... deeper 😉</a>
+    <a id="indulge-btn" href="kinklist.html">Click here if you need to indulge *cough* I mean indulge further... or how you like it... deeper 😉</a>
 
     <script>
-        const questions = [
-            "Hear them talk dirtier to me",
-            "Recieve a strip tease or give me a lap dance",
-            "Recieve give me a sensual massage",
-            "watch porn together",
-            "take pictures of Ya Spouse",
-            "be whipped by them",
-            "wake each other up with morning sex",
-            "have longer teasing and foreplay sessions with Daddy",
-            "be dominant towards Ya Dood",
-            "69 Ya Boo",
-            "use restraints on Ya Spouse",
-            "have Ya Spouse swallow your cum",
-            "use vibrators while having sex",
-            "cum over Ya Spouse's face (facial)",
-            "be rougher in sex towards Ya Spouse",
-            "have Ya Spouse be more vocal",
-            "double penetrate Ya Spouse with me and a toy",
-            "anally penetrate Ya Spouse",
-            "have Ya Spouse wear stockings and high heels during sex",
-            "watch Ya Spouse masturbate",
-            "cum over Ya Spouse's breasts/neck (pearl necklace)",
-            "mutually masturbate",
-            "include another male in the bedroom"
-            "have Ya Spouse use a butt plug",
-            "blindfold Ya Spouse",
-            "be tied down or otherwise restrained by Ya Spouse",
-            "talk dirtier to Ya Spouse",
-            "be shown what Ya Spouse likes from porn",
-            "spank Ya Spouse with your hand",
-            "be submissive for Ya Spouse",
-            "include another female in the bedroom (ménage à trois)",
-            "wear a cock ring (vibrating/non-vibrating) during sex"
-        ];
+        document.addEventListener("DOMContentLoaded", function () {
+            const questions = [
+                "Hear them talk dirtier to me",
+                "Receive a strip tease or give me a lap dance",
+                "Receive a sensual massage",
+                "Watch porn together",
+                "Take pictures of Ya Spouse",
+                "Be whipped by them",
+                "Wake each other up with morning sex",
+                "Have longer teasing and foreplay sessions with Daddy",
+                "Be dominant towards Ya Dood",
+                "69 Ya Boo",
+                "Use restraints on Ya Spouse",
+                "Have Ya Spouse swallow your cum",
+                "Use vibrators while having sex",
+                "Cum over Ya Spouse's face (facial)",
+                "Be rougher in sex towards Ya Spouse",
+                "Have Ya Spouse be more vocal",
+                "Double penetrate Ya Spouse with me and a toy",
+                "Anally penetrate Ya Spouse",
+                "Have Ya Spouse wear stockings and high heels during sex",
+                "Watch Ya Spouse masturbate",
+                "Cum over Ya Spouse's breasts/neck (pearl necklace)",
+                "Mutually masturbate",
+                "Include another male in the bedroom",
+                "Have Ya Spouse use a butt plug",
+                "Blindfold Ya Spouse",
+                "Be tied down or otherwise restrained by Ya Spouse",
+                "Talk dirtier to Ya Spouse",
+                "Be shown what Ya Spouse likes from porn",
+                "Spank Ya Spouse with your hand",
+                "Be submissive for Ya Spouse",
+                "Include another female in the bedroom (ménage à trois)",
+                "Wear a cock ring (vibrating/non-vibrating) during sex"
+            ];
 
-        function createQuestionList(containerId) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = "";
-            questions.forEach((question, index) => {
-                const div = document.createElement("div");
-                div.className = "question";
-                div.innerHTML = `
-                    <p>${question}</p>
-                    <label><input type="radio" name="q${index}" value="Nah"> Nah</label>
-                    <label><input type="radio" name="q${index}" value="If Ya Spouse wants"> If Ya Spouse wants</label>
-                    <label><input type="radio" name="q${index}" value="Yep"> Yep</label>
-                `;
-                container.appendChild(div);
-            });
-        }
+            function createQuestionList(containerId) {
+                const container = document.getElementById(containerId);
+                container.innerHTML = "";
+                questions.forEach((question, index) => {
+                    const div = document.createElement("div");
+                    div.className = "question";
+                    div.innerHTML = `
+                        <p>${question}</p>
+                        <label><input type="radio" name="q${index}" value="Nah"> Nah</label>
+                        <label><input type="radio" name="q${index}" value="If Ya Spouse wants"> If Ya Spouse wants</label>
+                        <label><input type="radio" name="q${index}" value="Yep"> Yep</label>
+                    `;
+                    container.appendChild(div);
+                });
+            }
 
-        createQuestionList("questions-container");
+            createQuestionList("questions-container");
+        });
     </script>
 </body>
 </html>
