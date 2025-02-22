@@ -1,13 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Corn Picker Plus</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who Is The Freaky Bitch Now?</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .question { margin: 20px 0; }
+        .hidden { display: none; }
+    </style>
 </head>
 <body>
-  <button class="glowing-btn" onclick="loadRandomUrl()">Click Me</button>
-  <script src="script.js"></script>
+    <h1>Couples Fantasy Quiz 1</h1>
+    <div id="user1-section">
+        <h2>User 1: Answer the Questions</h2>
+        <div id="questions-container"></div>
+        <button onclick="finishUser1()">Submit User 1's Answers</button>
+    </div>
+    
+    <div id="user2-section" class="hidden">
+        <h2>User 2: Answer the Questions</h2>
+        <div id="questions-container-2"></div>
+        <button onclick="finishUser2()">Submit User 2's Answers</button>
+    </div>
+
+    <div id="results-section" class="hidden">
+        <h2>Mutual Matches</h2>
+        <ul id="matches-list"></ul>
+        <h2>Compatibility Score</h2>
+        <p id="compatibility-score"></p>
+        <h2>Responses Breakdown</h2>
+        <h3>User 1's "Nah" Answers</h3>
+        <ul id="user1-nah"></ul>
+        <h3>User 2's "Nah" Answers</h3>
+        <ul id="user2-nah"></ul>
+    </div>
+
+    <script>
+        const questions = [
+            "have Ya Spouse talk dirtier to me",
+            "have Ya Spouse strip or give me a lap dance",
+            "have Ya Spouse give me a sensual massage",
+            "watch porn together",
+            "take pictures of Ya Spouse",
+            "be whipped by them",
+            "wake each other up with morning sex",
+            "have longer teasing and foreplay sessions with Daddy",
+            "be dominant towards Ya Dood",
+            "69 Ya Boo",
+            "use restraints on Ya Spouse",
+            "have Ya Spouse swallow my cum",
+            "use vibrators while having sex",
+            "cum over Ya Spouse's face (facial)",
+            "be rougher in sex towards Ya Spouse",
+            "have Ya Spouse be more vocal",
+            "double penetrate Ya Spouse with me and a toy",
+            "anally penetrate Ya Spouse",
+            "have Ya Spouse wear stockings and high heels during sex",
+            "watch Ya Spouse masturbate",
+            "cum over Ya Spouse's breasts/neck (pearl necklace)",
+            "mutually masturbate",
+            "have Ya Spouse use a butt plug",
+            "blindfold Ya Spouse",
+            "be tied down or otherwise restrained by Ya Spouse",
+            "talk dirtier to Ya Spouse",
+            "be shown what Ya Spouse likes from porn",
+            "spank Ya Spouse with your hand",
+            "be submissive for Ya Spouse",
+            "include another female in sex (ménage à trois)",
+            "wear a cock ring (vibrating/non-vibrating) during sex"
+        ];
+
+        let user1Answers = [];
+        let user2Answers = [];
+
+        function createQuestionList(containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = "";
+            questions.forEach((question, index) => {
+                const div = document.createElement("div");
+                div.className = "question";
+                div.innerHTML = `
+                    <p>${question}</p>
+                    <label><input type="radio" name="q${index}" value="Nah"> Nah</label>
+                    <label><input type="radio" name="q${index}" value="If Ya Spouse wants"> If Ya Spouse wants</label>
+                    <label><input type="radio" name="q${index}" value="Yep"> Yep</label>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function finishUser1() {
+            user1Answers = Array.from(document.querySelectorAll('#questions-container input:checked')).map(input => input.value);
+            document.getElementById("user1-section").classList.add("hidden");
+            document.getElementById("user2-section").classList.remove("hidden");
+            createQuestionList("questions-container-2");
+        }
+
+        function finishUser2() {
+            user2Answers = Array.from(document.querySelectorAll('#questions-container-2 input:checked')).map(input => input.value);
+            document.getElementById("user2-section").classList.add("hidden");
+            document.getElementById("results-section").classList.remove("hidden");
+            showResults();
+        }
+
+        function showResults() {
+            const matchesList = document.getElementById("matches-list");
+            matchesList.innerHTML = "";
+            let matchCount = 0;
+            const user1NahList = document.getElementById("user1-nah");
+            const user2NahList = document.getElementById("user2-nah");
+            user1NahList.innerHTML = "";
+            user2NahList.innerHTML = "";
+
+            questions.forEach((question, index) => {
+                if (user1Answers[index] === "Yep" && user2Answers[index] === "Yep") {
+                    const li = document.createElement("li");
+                    li.textContent = question;
+                    matchesList.appendChild(li);
+                    matchCount++;
+                }
+                if (user1Answers[index] === "Nah") {
+                    const li = document.createElement("li");
+                    li.textContent = question;
+                    user1NahList.appendChild(li);
+                }
+                if (user2Answers[index] === "Nah") {
+                    const li = document.createElement("li");
+                    li.textContent = question;
+                    user2NahList.appendChild(li);
+                }
+            });
+
+            const compatibilityScore = ((matchCount / questions.length) * 100).toFixed(2);
+            document.getElementById("compatibility-score").textContent = `Compatibility Score: ${compatibilityScore}%`;
+        }
+
+        createQuestionList("questions-container");
+    </script>
 </body>
 </html>
