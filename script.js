@@ -14,7 +14,7 @@ const questions = [
     "Use vibrators while having sex",
     "Cum over your partner's face (facial)",
     "Watch your partner 
-    "Be rougher in sex towards your partner",
+    "Be rougher during sex towards your partner",
     "Have your partner be more vocal",
     "Watch your partner cum without you",
     "Double penetrate your partner with a toy",
