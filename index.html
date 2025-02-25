@@ -9,34 +9,45 @@
 <body>
     <h1>Couples Fantasy Quiz 💋</h1>
 
+    <!-- User 1 Answer Section -->
     <div id="user1-section">
         <h2>User 1: Answer the Questions</h2>
         <div id="questions-container"></div>
         <button onclick="finishUser1()">Submit User 1's Answers</button>
     </div>
-    
+
+    <!-- Sharing Section for User 1 -->
+    <div id="share-section" class="hidden">
+        <h2>Share This Link with User 2</h2>
+        <input type="text" id="share-link" readonly>
+        <button onclick="copyLink()">Copy Link</button>
+    </div>
+
+    <!-- User 2 Answer Section -->
     <div id="user2-section" class="hidden">
         <h2>User 2: Answer the Questions</h2>
         <div id="questions-container-2"></div>
         <button onclick="finishUser2()">Submit User 2's Answers</button>
     </div>
 
+    <!-- Results Section -->
     <div id="results-section" class="hidden">
-        <h2>Mutual Matches 💞</h2>
-        <ul id="matches-list"></ul>
-
-        <h2>Compatibility Score 💕</h2>
+        <h2>Compatibility Results 💕</h2>
         <p id="compatibility-score"></p>
 
-        <h2>Unmatched Preferences 🚫</h2>
-        <h3>User 1's "Nah" Answers</h3>
-        <ul id="user1-nah"></ul>
+        <h3>🔥 Matched Preferences</h3>
+        <ul id="matches-list"></ul>
 
-        <h3>User 2's "Nah" Answers</h3>
-        <ul id="user2-nah"></ul>
+        <h3>🚫 Unmatched Preferences</h3>
+        <ul id="differences-list"></ul>
+
+        <h3>🧠 Relationship Insights</h3>
+        <div id="insights"></div>
+
+        <button onclick="resetTest()">Restart Test</button>
     </div>
 
-    <a id="indulge-btn" href="kinklist.html">Click here to inbuldge.. excuse me i mean, indulge further... or how you like it DEEPER... 😏</a>
+    <a id="indulge-btn" href="kinklist.html">Click here to indulge further... 😏</a>
 
     <script src="script.js"></script>
 </body>
