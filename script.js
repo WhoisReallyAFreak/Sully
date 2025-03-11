@@ -119,7 +119,7 @@ function showResults() {
     } else if (matchCount / totalQuestions >= 0.5) {
         insightPara.textContent = "There are some differences between you two, but that’s completely normal! Open discussions and mutual understanding can help bridge gaps.";
     } else {
-        insightPara.textContent = "You have quite a few differences in preferences. Consider having open conversations about your boundaries, values, and expectations to understand each other better.";
+        insightPara.textContent = "You have quite a few differences in preferences. To most people is a bad thing, but I believe it is a good thing here, as long as you both approach these differences with an open mindset and try to understand. Just consider having open conversations about your boundaries, and expectations, as well as what you would be uncomfortable with and most comfortable with to help understand each other better. who know knows what it could bring? You only live once, enjoy it!";
     }
     insightsDiv.appendChild(insightPara);
 }
